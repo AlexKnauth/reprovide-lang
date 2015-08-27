@@ -21,5 +21,5 @@
 
 (require "reprovide.rkt")
 
-(define-syntax-rule (-#%module-begin mod-path ...)
-  (#%module-begin (reprovide mod-path ...)))
+(define-syntax-rule (-#%module-begin require-spec ...)
+  (#%module-begin (reprovide require-spec ...)))
