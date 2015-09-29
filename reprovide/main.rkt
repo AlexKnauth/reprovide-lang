@@ -1,7 +1,9 @@
 #lang racket/base
 
-(provide (rename-out [-#%module-begin #%module-begin])
-         #%datum
+(require syntax/lang)
+
+
+(provide #%datum
          submod
          lib
          file
@@ -21,5 +23,4 @@
 
 (require "reprovide.rkt")
 
-(define-syntax-rule (-#%module-begin require-spec ...)
-  (#%module-begin (reprovide require-spec ...)))
+(define-lang-syntax reprovide reprovide)
