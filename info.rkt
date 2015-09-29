@@ -4,6 +4,7 @@
 
 (define deps
   '("base"
+    "git://github.com/jackfirth/racket-syntax-lang"
     ))
 
 (define build-deps
