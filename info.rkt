@@ -4,7 +4,7 @@
 
 (define deps
   '("base"
-    "syntax-lang"
+    "syntax-macro-lang"
     ))
 
 (define build-deps
