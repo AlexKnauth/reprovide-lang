@@ -1,7 +1,4 @@
-#lang racket/base
-
-(require syntax/lang)
-
+#lang s-exp syntax/macro-lang reprovide reprovide
 
 (provide #%datum
          submod
@@ -22,5 +19,3 @@
          )
 
 (require "reprovide.rkt")
-
-(define-lang-syntax reprovide reprovide)
