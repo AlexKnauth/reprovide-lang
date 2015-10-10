@@ -1,4 +1,4 @@
-reprovide-lang
+reprovide-lang [![Build Status](https://travis-ci.org/AlexKnauth/reprovide-lang.png?branch=master)](https://travis-ci.org/AlexKnauth/reprovide-lang)
 ===
 a racket language for reproviding modules
 
