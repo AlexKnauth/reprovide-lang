@@ -10,6 +10,7 @@
          prefix-in
          rename-in
          combine-in
+         combine-in*
          relative-in
          only-meta-in
          for-syntax
@@ -18,4 +19,5 @@
          for-meta
          )
 
-(require "reprovide.rkt")
+(require "reprovide.rkt" "combine-in-except.rkt"
+         )
