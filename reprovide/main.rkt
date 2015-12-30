@@ -1,6 +1,7 @@
 #lang s-exp syntax/macro-lang reprovide reprovide
 
 (provide #%datum
+         #%top-interaction
          submod
          lib
          file
