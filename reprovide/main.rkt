@@ -12,6 +12,7 @@
          rename-in
          combine-in
          combine-in*
+         directory-in
          relative-in
          only-meta-in
          for-syntax
@@ -20,5 +21,7 @@
          for-meta
          )
 
-(require "reprovide.rkt" "combine-in-except.rkt"
+(require "reprovide.rkt"
+         "require-transformer/combine-in-except.rkt"
+         "require-transformer/directory-in.rkt"
          )
