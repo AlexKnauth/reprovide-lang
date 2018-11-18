@@ -9,9 +9,7 @@
           racket/require-transform
           syntax/parse
           lang-file/read-lang-file
-          (only-in
-           racket/private/this-expression-source-directory
-           this-expression-source-file)))
+          "private/this-expression-source-file.rkt"))
 
 (begin-for-syntax
   (define-syntax-class path-str
