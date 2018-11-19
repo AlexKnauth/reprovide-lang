@@ -13,6 +13,7 @@
          combine-in
          combine-in*
          directory-in
+         glob-in
          relative-in
          only-meta-in
          for-syntax
@@ -24,4 +25,5 @@
 (require "reprovide.rkt"
          "require-transformer/combine-in-except.rkt"
          "require-transformer/directory-in.rkt"
+         "require-transformer/glob-in.rkt"
          )
