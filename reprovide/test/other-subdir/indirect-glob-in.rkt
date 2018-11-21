@@ -1,9 +1,11 @@
 #lang racket/base
 
-(require rackunit
-         "../use-glob-in.rkt")
+(require "../use-glob-in.rkt")
+(module+ test
+  (require rackunit))
 
-(check-equal? a 1)
-(check-equal? b 4)
-(check-equal? c 8)
-
+(module+ test
+  (check-equal? a 1)
+  (check-equal? b 4)
+  (check-equal? c 8)
+  )
