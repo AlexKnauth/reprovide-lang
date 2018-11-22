@@ -4,7 +4,7 @@
 
 @title{reprovide-lang}
 
-@section{#lang reprovide}
+@section{@hash-lang[] @racketmodname[reprovide]}
 
 @defmodule[reprovide #:lang]{
 A @hash-lang[] language for reproviding modules.
@@ -34,5 +34,45 @@ This module provides @racket[reprovide] as a macro.
 @defform[(reprovide require-spec ...)]{
 This form @racket[require]s each @racket[require-spec] and @racket[provide]s
 everything imported from all of them.
+}
+
+@section{Extra @racket[require] forms}
+
+@defmodule[reprovide/require-transformer/glob-in]
+
+These forms are provided by both
+@hash-lang[] @racketmodname[reprovide] and
+@racketmodname[reprovide/require-transformer/glob-in].
+
+@defform[(glob-in glob-str ...)]{
+
+Examples:
+@nested[#:style 'code-inset]{
+  @racketblock0[(require (glob-in "directory/*.rkt"))]
+  requires every file ending in @litchar{.rkt} in the given directory.
+}
+
+@nested[#:style 'code-inset]{
+  @racketblock0[(require (glob-in "directory/*.{rkt,scrbl}"))]
+  requires every file ending in @litchar{.rkt} or @litchar{.scrbl} in
+  the given directory.
+}
+
+@nested[#:style 'code-inset]{
+  @racketblock0[(require (glob-in "{linear,affine}/{data,transformation,decomposition}.rkt"))]
+  requires six things, according to every combination of options:
+  @itemize[
+    @item{@litchar{linear/data.rkt}}
+    @item{@litchar{linear/transformation.rkt}}
+    @item{@litchar{linear/decomposition.rkt}}
+    @item{@litchar{affine/data.rkt}}
+    @item{@litchar{affine/transformation.rkt}}
+    @item{@litchar{affine/decomposition.rkt}}
+  ]
+}
+
+The syntax for each @racket[glob-str] is described in
+@secref["glob" #:doc '(lib "file/scribblings/file.scrbl")].
+
 }
 
