@@ -5,6 +5,7 @@
 
 (require syntax/modresolve
          (except-in "main.rkt" #%module-begin)
+         "reprovide.rkt"
          (for-syntax racket/base
                      syntax/parse))
 
@@ -16,8 +17,8 @@
 (begin-for-syntax
   (define (make-variable-reference stx)
     (datum->syntax
-     stx
-     `(,(datum->syntax stx '#%variable-reference stx stx))
+     #'here
+     `(,(datum->syntax #'here '#%variable-reference stx stx))
      stx
      stx)))
 
