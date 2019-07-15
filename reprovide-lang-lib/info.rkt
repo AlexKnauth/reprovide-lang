@@ -7,9 +7,3 @@
     "lang-file"
     "syntax-macro-lang"
     ))
-
-(define build-deps
-  '("rackunit-lib"
-    "scribble-lib"
-    "racket-doc"
-    ))

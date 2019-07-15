@@ -14,6 +14,8 @@ env:
    - RACKET_VERSION=6.12
    - RACKET_VERSION=7.0
    - RACKET_VERSION=7.1
+   - RACKET_VERSION=7.2
+   - RACKET_VERSION=7.3
    - RACKET_VERSION=HEAD
 
 matrix:
@@ -22,7 +24,6 @@ matrix:
   fast_finish: true
 
 before_install:
- - cd ..
  - git clone https://github.com/greghendershott/travis-racket.git
  - cat travis-racket/install-racket.sh | bash # pipe to bash not sh!
  - export PATH="${RACKET_DIR}/bin:${PATH}"
@@ -32,7 +33,7 @@ install:
 before_script:
 
 script:
- - raco pkg install --deps search-auto --link reprovide-lang
- - raco test -p reprovide-lang
+ - raco pkg install --deps search-auto --link reprovide-lang-lib reprovide-lang
+ - raco test -p reprovide-lang-lib reprovide-lang
 
 after_script:
