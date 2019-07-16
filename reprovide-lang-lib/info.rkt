@@ -4,6 +4,6 @@
 
 (define deps
   '("base"
-    "lang-file"
+    "lang-file-lib"
     "syntax-macro-lang"
     ))
