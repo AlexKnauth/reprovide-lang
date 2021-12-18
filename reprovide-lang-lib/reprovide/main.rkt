@@ -12,6 +12,8 @@
          rename-in
          combine-in
          combine-in*
+         combine-in/fallback
+         allow-in
          glob-in
          relative-in
          only-meta-in
@@ -23,5 +25,6 @@
 
 (require "reprovide.rkt"
          "require-transformer/combine-in-except.rkt"
+         "require-transformer/combine-in-fallback.rkt"
          "require-transformer/glob-in.rkt"
          )

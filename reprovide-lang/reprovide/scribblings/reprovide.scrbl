@@ -38,6 +38,43 @@ everything imported from all of them.
 
 @section{Extra @racket[require] forms}
 
+@subsection{Require with fallbacks}
+
+@defmodule[reprovide/require-transformer/combine-in-fallback]
+
+These forms are provided by both
+@hash-lang[] @racketmodname[reprovide] and
+@racketmodname[reprovide/require-transformer/combine-in-fallback].
+
+@defform[(combine-in/fallback require-spec ...)]{
+The union of the @racket[require-spec]s, where imports not in the
+first ones can "fall back" on imports in subsequent ones.
+
+Like @racket[(combine-in require-spec ...)], but more lenient when
+imports from the @racket[require-spec]s have the same identifier name:
+the first ones take precedence over the subsequent ones.
+}
+
+@defform[(allow-in require-spec id-maybe-renamed ...)
+         #:grammar [(id-maybe-renamed id
+                                      [orig-id bind-id])]]{
+Like @racket[(only-in require-spec id-maybe-renamed ...)], but more
+lenient when @racket[id] or @racket[orig] isn't in the
+@racket[require-spec].
+}
+
+These can be used together to import an identifier if it exists, but
+fall back on a different identifier otherwise:
+@racketblock0[
+  (require (combine-in/fallback
+            (allow-in racket/unsafe/ops
+                      [unsafe-f32vector-set! unsafe?-f32vector-set!])
+            (allow-in ffi/vector
+                      [f32vector-set! unsafe?-f32vector-set!])))
+]
+
+@subsection{Require by glob}
+
 @defmodule[reprovide/require-transformer/glob-in]
 
 These forms are provided by both
